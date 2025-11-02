@@ -30,7 +30,7 @@
         <!-- Header Section Start -->
         <header id="header">
             <a href="index.html" class="logo"><img src="img/logo.png" alt="logo"></a>
-            <div class="phone"><i class="fa fa-phone"></i>+1 234 567 8900</div>
+            <div class="phone"><i class="fa fa-phone"></i>+254 722349029</div>
             <div class="mobile-menu-btn"><i class="fa fa-bars"></i></div>
             <nav class="main-menu top-menu">
                 <ul>
@@ -50,54 +50,80 @@
         <div id="login">
             <div class="container">
                 <div class="section-header">
-                    <h2>Registration / Login</h2>
+                    <h2>Login / Sign Up</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in mi libero. Quisque convallis, enim at venenatis tincidunt.
+                        Welcome back! Login to manage your bookings or create a new account to get started with your reservation at our beautiful apartment in Kisumu.
                     </p>
                 </div>
+                
+                <!-- Toggle Buttons -->
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-12 text-center mb-4">
+                        <div class="auth-toggle">
+                            <button class="toggle-btn active" id="loginToggle">Login</button>
+                            <button class="toggle-btn" id="signupToggle">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <!-- Login Form -->
+                    <div class="col-md-6" id="loginForm">
                         <div class="login-form">
+                            <h3 class="text-center mb-4">Login to Your Account</h3>
                             <form>
-                                <div class="form-row">
-                                    <div class="control-group col-sm-6">
-                                        <label>Your Name</label>
-                                        <input type="text" class="form-control" required="required" />
-                                    </div>
-                                    <div class="control-group col-sm-6">
-                                        <label>Email</label>
-                                        <input type="email" class="form-control" required="required" />
-                                    </div>
+                                <div class="control-group">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control" placeholder="Enter your email" required="required" />
                                 </div>
-                                <div class="form-row">
-                                    <div class="control-group col-sm-6">
-                                        <label>Your Password</label>
-                                        <input type="password" class="form-control" required="required" />
-                                    </div>
-                                    <div class="control-group col-sm-6">
-                                        <label>Repeat Your Password</label>
-                                        <input type="password" class="form-control" required="required" />
-                                    </div>
+                                <div class="control-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" placeholder="Enter your password" required="required" />
                                 </div>
-                                <div class="button"><button type="submit">Registration</button></div>
+                                <div class="control-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox"> Remember me
+                                    </label>
+                                </div>
+                                <div class="button"><button type="submit">Login</button></div>
+                                <div class="text-center mt-3">
+                                    <a href="#" class="text-muted">Forgot Password?</a>
+                                </div>
                             </form>
                         </div>
                     </div>
                     
-                    <div class="col-md-6">
+                    <!-- Signup Form -->
+                    <div class="col-md-6" id="signupForm" style="display: none;">
                         <div class="login-form">
+                            <h3 class="text-center mb-4">Create New Account</h3>
                             <form>
-                                <div class="form-row">
-                                    <div class="control-group col-sm-6">
-                                        <label>Your Email</label>
-                                        <input type="email" class="form-control" required="required" />
-                                    </div>
-                                    <div class="control-group col-sm-6">
-                                        <label>Your Password</label>
-                                        <input type="password" class="form-control" required="required" />
-                                    </div>
+                                <div class="control-group">
+                                    <label>Full Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter your full name" required="required" />
                                 </div>
-                                <div class="button"><button type="submit">Login</button></div>
+                                <div class="control-group">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control" placeholder="Enter your email" required="required" />
+                                </div>
+                                <div class="control-group">
+                                    <label>Phone Number</label>
+                                    <input type="tel" class="form-control" placeholder="Enter your phone number" required="required" />
+                                </div>
+                                <div class="control-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" placeholder="Create a password" required="required" />
+                                </div>
+                                <div class="control-group">
+                                    <label>Confirm Password</label>
+                                    <input type="password" class="form-control" placeholder="Repeat your password" required="required" />
+                                </div>
+                                <div class="control-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" required> I agree to the Terms and Conditions
+                                    </label>
+                                </div>
+                                <div class="button"><button type="submit">Sign Up</button></div>
                             </form>
                         </div>
                     </div>
@@ -105,6 +131,135 @@
             </div>
         </div>
         <!-- Login Section End -->
+        
+        <style>
+            .auth-toggle {
+                display: inline-flex;
+                background: #f2f2f2;
+                border-radius: 30px;
+                padding: 5px;
+                margin-bottom: 30px;
+            }
+            
+            .toggle-btn {
+                padding: 12px 40px;
+                border: none;
+                background: transparent;
+                color: #666;
+                font-size: 16px;
+                font-weight: 500;
+                border-radius: 25px;
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+            
+            .toggle-btn.active {
+                background: #00CED1;
+                color: #fff;
+            }
+            
+            .toggle-btn:hover {
+                color: #00CED1;
+            }
+            
+            .toggle-btn.active:hover {
+                color: #fff;
+            }
+            
+            #login .login-form {
+                background: #fff;
+                padding: 40px;
+                border-radius: 10px;
+                box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            }
+            
+            #login .login-form h3 {
+                color: #222;
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+            
+            #login .control-group {
+                margin-bottom: 20px;
+            }
+            
+            #login .control-group label {
+                display: block;
+                margin-bottom: 8px;
+                color: #666;
+                font-weight: 500;
+            }
+            
+            #login .control-group input[type="text"],
+            #login .control-group input[type="email"],
+            #login .control-group input[type="password"],
+            #login .control-group input[type="tel"] {
+                width: 100%;
+                padding: 12px 15px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                font-size: 14px;
+                transition: border-color 0.3s;
+            }
+            
+            #login .control-group input:focus {
+                outline: none;
+                border-color: #00CED1;
+            }
+            
+            #login .checkbox-label {
+                font-weight: normal;
+                cursor: pointer;
+            }
+            
+            #login .checkbox-label input[type="checkbox"] {
+                margin-right: 8px;
+            }
+            
+            #login .button {
+                margin-top: 25px;
+            }
+            
+            #login .button button {
+                width: 100%;
+                padding: 14px;
+                background: #00CED1;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: background 0.3s;
+            }
+            
+            #login .button button:hover {
+                background: #222;
+            }
+        </style>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const loginToggle = document.getElementById('loginToggle');
+                const signupToggle = document.getElementById('signupToggle');
+                const loginForm = document.getElementById('loginForm');
+                const signupForm = document.getElementById('signupForm');
+                
+                loginToggle.addEventListener('click', function() {
+                    loginToggle.classList.add('active');
+                    signupToggle.classList.remove('active');
+                    loginForm.style.display = 'block';
+                    signupForm.style.display = 'none';
+                });
+                
+                signupToggle.addEventListener('click', function() {
+                    signupToggle.classList.add('active');
+                    loginToggle.classList.remove('active');
+                    signupForm.style.display = 'block';
+                    loginForm.style.display = 'none';
+                });
+            });
+        </script>
         
         <!-- Footer Section Start -->
         <div id="footer">
@@ -126,8 +281,8 @@
                         </ul>
                     </div>
                     <div class="col-12">
-                        <p>Copyright &#169; <a href="https://htmlcodex.com">HTML Codex</a> All Rights Reserved.</p>
-						<p>Template By <a href="https://htmlcodex.com">HTML Codex</a></p>
+                        <p>Copyright &#169; <a href="http://drewsky-ltd.vercel.app/">Drewsky Softwares</a> All Rights Reserved.</p>
+						<p>Designed by <a href="https://drewsky-ltd.vercel.app/">Drewsky Softwares</a></p>
                     </div>
                 </div>
             </div>
