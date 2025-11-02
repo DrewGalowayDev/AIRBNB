@@ -71,7 +71,7 @@
                     <div class="col-md-6" id="loginForm">
                         <div class="login-form">
                             <h3 class="text-center mb-4">Login to Your Account</h3>
-                            <form>
+                            <form id="loginFormElement">
                                 <div class="control-group">
                                     <label>Email</label>
                                     <input type="email" class="form-control" placeholder="Enter your email" required="required" />
@@ -97,7 +97,7 @@
                     <div class="col-md-6" id="signupForm" style="display: none;">
                         <div class="login-form">
                             <h3 class="text-center mb-4">Create New Account</h3>
-                            <form>
+                            <form id="signupFormElement">
                                 <div class="control-group">
                                     <label>Full Name</label>
                                     <input type="text" class="form-control" placeholder="Enter your full name" required="required" />
@@ -244,7 +244,10 @@
                 const signupToggle = document.getElementById('signupToggle');
                 const loginForm = document.getElementById('loginForm');
                 const signupForm = document.getElementById('signupForm');
+                const loginFormElement = document.getElementById('loginFormElement');
+                const signupFormElement = document.getElementById('signupFormElement');
                 
+                // Toggle between login and signup
                 loginToggle.addEventListener('click', function() {
                     loginToggle.classList.add('active');
                     signupToggle.classList.remove('active');
@@ -257,6 +260,44 @@
                     loginToggle.classList.remove('active');
                     signupForm.style.display = 'block';
                     loginForm.style.display = 'none';
+                });
+                
+                // Handle login form submission
+                loginFormElement.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Simulate login process
+                    // In a real application, you would validate credentials here
+                    
+                    // Show loading state (optional)
+                    const submitBtn = loginFormElement.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Logging in...';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate API call delay
+                    setTimeout(function() {
+                        // Redirect to dashboard
+                        window.location.href = 'dashboard.html';
+                    }, 1000);
+                });
+                
+                // Handle signup form submission
+                signupFormElement.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Simulate signup process
+                    // In a real application, you would create the account here
+                    
+                    // Show loading state
+                    const submitBtn = signupFormElement.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Creating Account...';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate API call delay
+                    setTimeout(function() {
+                        // Redirect to dashboard after signup
+                        window.location.href = 'dashboard.html';
+                    }, 1000);
                 });
             });
         </script>
