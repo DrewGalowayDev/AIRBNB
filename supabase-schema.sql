@@ -126,9 +126,13 @@ CREATE POLICY "Users can view their own bookings"
     ON public.bookings FOR SELECT 
     USING (auth.uid() = user_id);
 
-CREATE POLICY "Users can create bookings" 
+-- Allow both authenticated users and guests to create bookings
+CREATE POLICY "Anyone can create bookings" 
     ON public.bookings FOR INSERT 
-    WITH CHECK (auth.uid() = user_id OR user_id IS NULL);
+    WITH CHECK (
+        (auth.uid() = user_id) OR 
+        (user_id IS NULL)
+    );
 
 CREATE POLICY "Users can update their own bookings" 
     ON public.bookings FOR UPDATE 

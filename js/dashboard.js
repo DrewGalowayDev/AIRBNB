@@ -176,9 +176,21 @@ function displayBookings(bookings) {
     const bookingsContainer = document.querySelector('#dashboard .dashboard-section:has(h2 i.fa-list)');
     if (!bookingsContainer) return;
     
+    // Remove loading spinner
+    const loadingSpinner = bookingsContainer.querySelector('.loading-spinner');
+    if (loadingSpinner) {
+        loadingSpinner.remove();
+    }
+    
     // Clear existing bookings
     const existingBookings = bookingsContainer.querySelectorAll('.booking-card');
     existingBookings.forEach(card => card.remove());
+    
+    // Clear no-bookings message if exists
+    const noBookingsMsg = bookingsContainer.querySelector('.no-bookings');
+    if (noBookingsMsg) {
+        noBookingsMsg.remove();
+    }
     
     if (bookings.length === 0) {
         displayNoBookings();
@@ -260,6 +272,12 @@ function createBookingCard(booking) {
 function displayNoBookings() {
     const bookingsContainer = document.querySelector('#dashboard .dashboard-section:has(h2 i.fa-list)');
     if (!bookingsContainer) return;
+    
+    // Remove loading spinner
+    const loadingSpinner = bookingsContainer.querySelector('.loading-spinner');
+    if (loadingSpinner) {
+        loadingSpinner.remove();
+    }
     
     const h2Element = bookingsContainer.querySelector('h2');
     const noBookingsHTML = `
@@ -438,9 +456,14 @@ function hideDashboardLoading() {
     }
 }
 
-// Add modal styles
+// Add modal and additional styles
 const modalStyles = document.createElement('style');
 modalStyles.textContent = `
+    .no-bookings .btn-sm {
+        display: inline-block;
+        text-decoration: none;
+    }
+    
     .modal-overlay {
         position: fixed;
         top: 0;

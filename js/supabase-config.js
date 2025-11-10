@@ -175,18 +175,46 @@ async function createBooking(bookingData) {
             throw new Error('Apartment is not available for the selected dates');
         }
 
+        // Check if user is authenticated
+        const { data: { session } } = await supabase.auth.getSession();
+        
+        // If user is authenticated, ensure user_id is set
+        if (session && session.user) {
+            bookingData.user_id = session.user.id;
+        } else {
+            // For guest bookings, set user_id to null explicitly
+            bookingData.user_id = null;
+        }
+
+        // Log the booking data being sent
+        console.log('Attempting to create booking with data:', bookingData);
+        
         const { data, error } = await supabase
             .from('bookings')
             .insert([bookingData])
             .select()
             .single();
 
-        if (error) throw error;
+        if (error) {
+            console.error('Supabase insert error:', error);
+            console.error('Error code:', error.code);
+            console.error('Error details:', error.details);
+            console.error('Error hint:', error.hint);
+            throw error;
+        }
 
+        console.log('Booking created successfully:', data);
         return { success: true, data };
     } catch (error) {
         console.error('Create booking error:', error);
-        return { success: false, error: error.message };
+        
+        // Provide more helpful error messages
+        let errorMessage = error.message;
+        if (error.code === '42501') {
+            errorMessage = 'Permission error: Please contact support. The booking system needs database permissions updated.';
+        }
+        
+        return { success: false, error: errorMessage };
     }
 }
 

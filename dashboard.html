@@ -379,7 +379,7 @@
                 <!-- Welcome Header -->
                 <div class="dashboard-header">
                     <div class="container">
-                        <h1>Welcome back, John!</h1>
+                        <h1>Welcome back!</h1>
                         <p>Manage your bookings and account settings from your personal dashboard</p>
                     </div>
                 </div>
@@ -392,7 +392,7 @@
                                 <div class="icon">
                                     <i class="fa fa-calendar-check-o"></i>
                                 </div>
-                                <h3>3</h3>
+                                <h3>0</h3>
                                 <p>Total Bookings</p>
                             </div>
                         </div>
@@ -401,7 +401,7 @@
                                 <div class="icon">
                                     <i class="fa fa-clock-o"></i>
                                 </div>
-                                <h3>1</h3>
+                                <h3>0</h3>
                                 <p>Pending Bookings</p>
                             </div>
                         </div>
@@ -410,7 +410,7 @@
                                 <div class="icon">
                                     <i class="fa fa-check-circle"></i>
                                 </div>
-                                <h3>2</h3>
+                                <h3>0</h3>
                                 <p>Confirmed Stays</p>
                             </div>
                         </div>
@@ -419,7 +419,7 @@
                                 <div class="icon">
                                     <i class="fa fa-heart"></i>
                                 </div>
-                                <h3>5</h3>
+                                <h3>0</h3>
                                 <p>Favorite Places</p>
                             </div>
                         </div>
@@ -429,98 +429,10 @@
                 <!-- Recent Bookings Section -->
                 <div class="dashboard-section">
                     <h2><i class="fa fa-list"></i> My Bookings</h2>
-                    
-                    <!-- Booking 1 -->
-                    <div class="booking-card">
-                        <div class="booking-header">
-                            <span class="booking-id"><i class="fa fa-hashtag"></i> BK-2025-001</span>
-                            <span class="status confirmed">Confirmed</span>
-                        </div>
-                        <div class="booking-details">
-                            <div class="booking-detail">
-                                <i class="fa fa-home"></i>
-                                <span>Two-Bedroom Apartment</span>
-                            </div>
-                            <div class="booking-detail">
-                                <i class="fa fa-calendar"></i>
-                                <span>Nov 15 - Nov 22, 2025</span>
-                            </div>
-                            <div class="booking-detail">
-                                <i class="fa fa-users"></i>
-                                <span>2 Adults, 1 Child</span>
-                            </div>
-                            <div class="booking-detail">
-                                <i class="fa fa-moon-o"></i>
-                                <span>7 Nights</span>
-                            </div>
-                        </div>
-                        <div class="booking-actions">
-                            <button class="btn-sm btn-primary"><i class="fa fa-eye"></i> View Details</button>
-                            <button class="btn-sm btn-outline"><i class="fa fa-download"></i> Download Receipt</button>
-                            <button class="btn-sm btn-danger"><i class="fa fa-times"></i> Cancel</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Booking 2 -->
-                    <div class="booking-card">
-                        <div class="booking-header">
-                            <span class="booking-id"><i class="fa fa-hashtag"></i> BK-2025-002</span>
-                            <span class="status pending">Pending</span>
-                        </div>
-                        <div class="booking-details">
-                            <div class="booking-detail">
-                                <i class="fa fa-home"></i>
-                                <span>Two-Bedroom Apartment</span>
-                            </div>
-                            <div class="booking-detail">
-                                <i class="fa fa-calendar"></i>
-                                <span>Dec 20 - Dec 27, 2025</span>
-                            </div>
-                            <div class="booking-detail">
-                                <i class="fa fa-users"></i>
-                                <span>4 Adults</span>
-                            </div>
-                            <div class="booking-detail">
-                                <i class="fa fa-moon-o"></i>
-                                <span>7 Nights</span>
-                            </div>
-                        </div>
-                        <div class="booking-actions">
-                            <button class="btn-sm btn-primary"><i class="fa fa-eye"></i> View Details</button>
-                            <button class="btn-sm btn-outline"><i class="fa fa-edit"></i> Modify</button>
-                            <button class="btn-sm btn-danger"><i class="fa fa-times"></i> Cancel</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Booking 3 -->
-                    <div class="booking-card">
-                        <div class="booking-header">
-                            <span class="booking-id"><i class="fa fa-hashtag"></i> BK-2024-089</span>
-                            <span class="status confirmed">Completed</span>
-                        </div>
-                        <div class="booking-details">
-                            <div class="booking-detail">
-                                <i class="fa fa-home"></i>
-                                <span>Two-Bedroom Apartment</span>
-                            </div>
-                            <div class="booking-detail">
-                                <i class="fa fa-calendar"></i>
-                                <span>Oct 10 - Oct 15, 2025</span>
-                            </div>
-                            <div class="booking-detail">
-                                <i class="fa fa-users"></i>
-                                <span>2 Adults</span>
-                            </div>
-                            <div class="booking-detail">
-                                <i class="fa fa-moon-o"></i>
-                                <span>5 Nights</span>
-                            </div>
-                        </div>
-                        <div class="booking-actions">
-                            <button class="btn-sm btn-primary"><i class="fa fa-eye"></i> View Details</button>
-                            <button class="btn-sm btn-outline"><i class="fa fa-star"></i> Write Review</button>
-                            <button class="btn-sm btn-outline"><i class="fa fa-refresh"></i> Book Again</button>
-                        </div>
+                    <!-- Bookings will be loaded dynamically from Supabase by dashboard.js -->
+                    <div class="loading-spinner" style="text-align: center; padding: 40px;">
+                        <i class="fa fa-spinner fa-spin" style="font-size: 48px; color: #00CED1;"></i>
+                        <p style="margin-top: 15px; color: #666;">Loading your bookings...</p>
                     </div>
                 </div>
                 
@@ -528,30 +440,30 @@
                 <div class="dashboard-section">
                     <h2><i class="fa fa-user"></i> My Profile</h2>
                     <div class="profile-card">
-                        <div class="profile-avatar">JD</div>
+                        <div class="profile-avatar">U</div>
                         <div class="profile-info">
-                            <h3>John Doe</h3>
-                            <p style="color: #666;">Member since October 2024</p>
+                            <h3>User</h3>
+                            <p style="color: #666;">Member since ...</p>
                             <div class="profile-details">
                                 <div class="profile-detail">
                                     <i class="fa fa-envelope"></i>
                                     <strong>Email:</strong>
-                                    <span>john.doe@example.com</span>
+                                    <span>Loading...</span>
                                 </div>
                                 <div class="profile-detail">
                                     <i class="fa fa-phone"></i>
                                     <strong>Phone:</strong>
-                                    <span>+254 712 345 678</span>
+                                    <span>Loading...</span>
                                 </div>
                                 <div class="profile-detail">
                                     <i class="fa fa-map-marker"></i>
                                     <strong>Location:</strong>
-                                    <span>Nairobi, Kenya</span>
+                                    <span>Loading...</span>
                                 </div>
                                 <div class="profile-detail">
                                     <i class="fa fa-shield"></i>
                                     <strong>Status:</strong>
-                                    <span>Verified Member</span>
+                                    <span>Active Member</span>
                                 </div>
                             </div>
                         </div>

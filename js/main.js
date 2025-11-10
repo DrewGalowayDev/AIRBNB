@@ -57,12 +57,27 @@
 
     });
     
-    // Date and time picker
-    $('#date-1, #date-2, #date-3, #date-4, #date-5, #date-6').datetimepicker({
-        format: 'L'
-    });
-    $('#time-1, #time-2').datetimepicker({
-        format: 'LT'
-    });
+    // Date and time picker - only for non-booking forms
+    // Booking form dates are handled by booking-handler.js using HTML5 date inputs
+    // to prevent refresh issues and provide better mobile support
+    if ($('#date-1').length && !$('#bookingForm').length) {
+        $('#date-1, #date-2').datetimepicker({
+            format: 'L'
+        });
+    }
+    
+    // Time pickers (if they exist)
+    if ($('#time-1').length) {
+        $('#time-1, #time-2').datetimepicker({
+            format: 'LT'
+        });
+    }
+    
+    // Search section date pickers on index page (if not handled by booking-handler)
+    if ($('#date-5, #date-6').length) {
+        $('#date-5, #date-6').datetimepicker({
+            format: 'L'
+        });
+    }
 })(jQuery);
 

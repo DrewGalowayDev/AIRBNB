@@ -157,12 +157,12 @@
                                 <div class="form-row">
                                     <div class="control-group col-sm-6">
                                         <label>Check-In</label>
-                                        <input type="text" class="form-control datetimepicker-input" id="date-1" data-toggle="datetimepicker" data-target="#date-1" placeholder="E.g. MM/DD/YYYY" required="required" data-validation-required-message="Please enter date"/>
+                                        <input type="date" class="form-control" id="date-1" placeholder="Select check-in date" required="required"/>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                     <div class="control-group col-sm-6">
                                         <label>Check-Out</label>
-                                        <input type="text" class="form-control datetimepicker-input" id="date-2" data-toggle="datetimepicker" data-target="#date-2" placeholder="E.g. MM/DD/YYYY" required="required" data-validation-required-message="Please enter date"/>
+                                        <input type="date" class="form-control" id="date-2" placeholder="Select check-out date" required="required"/>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
@@ -203,8 +203,8 @@
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label>Special Request</label>
-                                    <input type="text" class="form-control" id="request" placeholder="E.g. Special Request" required="required" data-validation-required-message="Please enter your special request" />
+                                    <label>Special Request (Optional)</label>
+                                    <input type="text" class="form-control" id="request" placeholder="E.g. Early check-in, Extra pillows, etc." />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="button"><button type="submit" id="bookingButton">Book Now</button></div>
@@ -265,6 +265,9 @@
         
         <!-- Supabase Configuration -->
         <script src="js/supabase-config.js"></script>
+        
+        <!-- Email Templates -->
+        <script src="js/email-templates.js"></script>
         
         <!-- Booking Handler -->
         <script src="js/booking-handler.js"></script>
