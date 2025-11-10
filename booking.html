@@ -260,6 +260,24 @@
         <script src="vendor/tempusdominus/js/moment-timezone.min.js"></script>
         <script src="vendor/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
         
+        <!-- EmailJS for sending emails -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script type="text/javascript">
+            // Initialize EmailJS with your public key
+            // Get your key from: https://dashboard.emailjs.com/admin/account
+            (function() {
+                // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+                const EMAILJS_PUBLIC_KEY = '0NpDq7kjgwcQNHCwW'; // Your EmailJS public key
+                
+                if (EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+                    emailjs.init(EMAILJS_PUBLIC_KEY);
+                    console.log('✅ EmailJS initialized successfully');
+                } else {
+                    console.warn('⚠️ EmailJS not configured. Please add your public key in booking.html');
+                }
+            })();
+        </script>
+        
         <!-- Supabase Client -->
         <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
         

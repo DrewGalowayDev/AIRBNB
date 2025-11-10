@@ -579,34 +579,68 @@ window.closeConfirmationModal = function() {
 // Send booking confirmation email
 async function sendBookingConfirmationEmail(booking, nights, totalAmount) {
     try {
-        // Prepare email data
+        // Prepare email data - MUST match EmailJS template variables exactly
         const emailData = {
-            to: booking.email,
-            subject: `Booking Confirmation - ${booking.booking_number}`,
+            to_email: booking.email,
+            guestEmail: booking.email,
             bookingNumber: booking.booking_number,
             guestName: `${booking.first_name} ${booking.last_name}`,
             apartmentName: selectedApartment.name,
             checkIn: formatDate(booking.check_in),
             checkOut: formatDate(booking.check_out),
-            nights: nights,
-            adults: booking.adults,
-            children: booking.children,
+            nights: nights.toString(),
+            adults: booking.adults.toString(),
+            children: booking.children.toString(),
             totalAmount: formatCurrency(totalAmount),
             specialRequest: booking.special_request || 'None'
         };
         
-        // Log email would be sent (in production, this would call an email API)
-        console.log('Booking confirmation email data:', emailData);
+        console.log('Preparing to send confirmation email to:', booking.email);
+        console.log('📧 Full email data being sent:', JSON.stringify(emailData, null, 2));
         
-        // In a real application, you would call an email service here
-        // For now, we'll show a notification that email was "sent"
-        setTimeout(() => {
-            console.log(`✅ Confirmation email sent to ${booking.email}`);
-        }, 1000);
+        // Validate email data
+        if (!emailData.to_email || emailData.to_email === 'undefined') {
+            console.error('❌ to_email is missing or invalid:', emailData.to_email);
+            return { success: false, error: 'Invalid recipient email' };
+        }
         
-        return { success: true };
+        console.log('✅ to_email validation passed:', emailData.to_email);
+        
+        // Check if EmailJS is available
+        if (typeof emailjs !== 'undefined') {
+            console.log('📤 Sending to EmailJS with:', {
+                serviceID: 'service_5c1rhj',
+                templateID: 'template_booking',
+                recipientEmail: emailData.to_email
+            });
+            
+            try {
+                // Send email using EmailJS with SMTP service
+                const response = await emailjs.send(
+                    'service_fomlvxh', // SMTP Service ID
+                    'template_booking', // Template ID
+                    emailData
+                );
+                
+                console.log('✅ Email sent successfully!', response);
+                return { success: true, response };
+            } catch (emailError) {
+                console.error('❌ EmailJS error:', emailError);
+                console.error('❌ Error status:', emailError.status);
+                console.error('❌ Error text:', emailError.text);
+                console.error('❌ Full error object:', JSON.stringify(emailError, null, 2));
+                // Even if email fails, don't break the booking flow
+                return { success: false, error: emailError.text || emailError.message };
+            }
+        } else {
+            console.warn('⚠️ EmailJS not loaded. Email not sent. Please configure EmailJS.');
+            // Log that email would be sent
+            console.log('📧 Email would be sent to:', booking.email);
+            console.log('📋 With data:', emailData);
+            return { success: false, error: 'EmailJS not configured' };
+        }
     } catch (error) {
-        console.error('Error sending confirmation email:', error);
+        console.error('Error in email function:', error);
         return { success: false, error: error.message };
     }
 }
